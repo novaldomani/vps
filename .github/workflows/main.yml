@@ -18,7 +18,7 @@ jobs:
     steps:
     - name: Set up Go ${{ matrix.go }}
       uses: action/setup-go@v1
-	  with:
+      with:
         go-version: ${{ matrix.go }}
       id: go
     - name: Setup
